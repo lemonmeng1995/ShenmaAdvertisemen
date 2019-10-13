@@ -1,14 +1,17 @@
 <template>
 <div id="briefintroduction">
-    <p>我是主角也1</p>
+    <p>briefintroduction</p>
+    <Profileeditor/>
 
 </div>
   
 </template>
 
 <script>
+import Profileeditor from "./profileeditor"
 export default {
     name:'briefintroduction',
+    components:{Profileeditor},
     data(){
         return{
 

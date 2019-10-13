@@ -13,7 +13,7 @@
        </router-link>
        
             
-       <router-link to="{ name: 'Freecreation'}">
+       <router-link  :to="{path:'/freecreation'}" >
           <img class= "freecreation" :src="images.freecreation" alt="" >
        </router-link>
             
