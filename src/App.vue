@@ -13,8 +13,8 @@
        </router-link>
        
             
-       <router-link to="{ name: 'Product'}">
-          <!-- <img :src="images.freecreation" alt="" > -->
+       <router-link to="{ name: 'Freecreation'}">
+          <img class= "freecreation" :src="images.freecreation" alt="" >
        </router-link>
             
        <router-link :to="{ name: 'Dynamiccom'}">
@@ -71,10 +71,15 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   margin:0;
   padding:0;
-  *{
+
+   h1,h2,h3,h4,p{
     margin:0;
     padding:0;
   }
+  // *{
+  //   margin:0;
+  //   padding:0;
+  // }
    .menuList_box{
       position: fixed;
       bottom: 0;
@@ -101,6 +106,10 @@ export default {
           img{
             width: 50px;
             height: 73px;
+          }
+          .freecreation{
+            width:103px;
+            height:73px;
           }
         }
       }

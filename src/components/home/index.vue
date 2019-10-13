@@ -1,5 +1,20 @@
 <template>
   <div id="home">
+    <div v-if="isMorec" class="home-Caidan" @click="getMoreCaidan(false)">
+      <img :src="image.caidan"/>
+    </div>
+    <div v-else class="home-morecai">
+        <img class="home-morecai-close" :src="image.close" @click="getMoreCaidan(true)"/>
+        <img  class="home-morecai-baocun" :src="image.baocun"/>
+        <img  class="home-morecai-caierwei" :src="image.caierwei"/>
+        <img  class="home-morecai-tuijian" :src="image.tuijian"/>
+        <img  class="home-morecai-chaunjian" :src="image.chaunjian"/>
+    </div>
+    <div class="home-music">
+        <audio :src="musicfile" class="media-audio" loop autoplay ref="MusicPlay"></audio>   
+       <img v-if="isMusci" :src="image.musci" @click="getMoremusci(false)"/>
+       <img v-else :src="image.nomuic" @click="getMoremusci(true)"/> 
+    </div>
     <div
       class="topHome"
       :style="{backgroundImage: 'url(' + image.touxiang + ')', backgroundSize:'cover'}"
@@ -82,19 +97,49 @@ export default {
   name: "home",
   data() {
     return {
+      musicfile:require("../../assets/musci/muc.mp3"),
+      // autoplay:true,
       image: {
         touxiang: require("../../assets/home/touxiang.png"),
         wode01: require("../../assets/home/wode01.png"),
         youxiang: require("../../assets/home/youxiang.png"),
         dingwei: require("../../assets/home/dingwei.png"),
-        contentpicture: require("../../assets/home/contentpicture.png")
+        contentpicture: require("../../assets/home/contentpicture.png"),
+        caidan: require("../../assets/home/caidan.png"),
+          musci: require("../../assets/home/musci.png"),
+           nomuic: require("../../assets/home/nomuic.png"),
+
+                baocun: require("../../assets/home/baocun.png"),
+        close: require("../../assets/home/close.png"),
+        caierwei: require("../../assets/home/caierwei.png"),
+          tuijian: require("../../assets/home/tuijian.png"),
+           chaunjian: require("../../assets/home/chaunjian.png"),
+
       },
-      active: 0
+      active: 0, //tab切换得标示
+      isMorec:true, //左上角得到更多得菜单标示
+      isMusci:true ,  //右上角音乐
     };
   },
   methods: {
     onClick() {
       console.log("打印得好似点击得onClick", this.active);
+    },
+    //点击得到更多得菜单选择
+    getMoreCaidan(state){
+      this.isMorec = state
+    },
+    getMoremusci(state){
+      console.log("232,", state,this.isMusci )
+      this.isMusci = state
+      // this.autoplay = state
+      if(state){
+        this.$refs.MusicPlay.play();
+      }else{
+        this.$refs.MusicPlay.pause();
+      }
+   
+        console.log("2222,", state,this.isMusci )
     }
   }
 };
@@ -104,6 +149,64 @@ export default {
 #home {
   width: 100%;
   margin-bottom: 120px;
+  .home-Caidan{
+    position:absolute;
+    left:24px;
+    top:25px;
+    img{
+      width:72px;
+      height:73px;
+    }
+  }
+  .home-morecai{
+     position:absolute;
+     text-align: center;
+      left:24px;
+    top:25px;
+     width:74px;
+height:483px;
+background:rgba(188,188,206,0.7);
+border:0px solid rgba(0,0,0,1);
+border-radius:37px;
+  img{
+      margin-top:20px;
+    }
+    .home-morecai-close{
+      width:53px;
+      height:53px;
+      // margin:20px auto;
+    }
+      .home-morecai-baocun{
+      width:42px;
+      height:64px;
+      // margin:6px auto;
+    }
+      .home-morecai-caierwei{
+      width:63px;
+      height:64px;
+      // margin:6px auto;
+    }
+      .home-morecai-tuijian{
+      width:41px;
+      height:64px;
+      // margin:6px auto;
+    }
+      .home-morecai-chaunjian{
+      width:42px;
+      height:64px;
+      // margin:6px auto;
+    }
+
+  }
+  .home-music{
+     position:absolute;
+     right:30px;
+     top:25px;
+         img{
+      width:72px;
+      height:73px;
+    }
+  }
   .topHome {
     // display: none;
     // opacity:0.6;
