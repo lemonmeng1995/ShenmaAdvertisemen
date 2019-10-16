@@ -18,6 +18,13 @@ const Product = r => require.ensure([], () => r(require('../components/product/i
 const Productdetails = r => require.ensure([], () => r(require('../components/product/productdetails')), 'index') // 产品
 
 
+const Manhome = r => require.ensure([], () => r(require('../components/managementCom/manhome')), 'index') // 产品
+
+const Productman = r => require.ensure([], () => r(require('../components/managementCom/productman')), 'index') // 产品
+
+
+
+
 
 const router= new Router({
   routes: [
@@ -34,49 +41,7 @@ const router= new Router({
         isLogin: false,
         title: '名片'
       },
-        //  children:[
-        //   {
-        //     path: '/index/home',
-        //     name: 'Index',
-        //     component: Index,
-        //     meta: {
-        //       title: '名片'
-        //     }
-        //   }, 
-        //   {
-        //     path: '/briefintroduction',
-        //     name: 'Briefintroduction',
-        //     component: Briefintroduction,
-        //     meta: {
-        //       title: '简介'
-        //     }
-        //   }, 
-        //   {
-        //     path: '/product',
-        //     name: 'Product',
-        //     component: Product,
-        //     meta: {
-        //       title: '产品'
-        //     }
-        //   }, 
-        //   {
-        //     path: '/dynamiccom',
-        //     name: 'Dynamiccom',
-        //     component: Dynamiccom,
-        //     meta: {
-        //       title: '动态'
-        //     }
-        //   }, 
-        // ],
     },
-    // {
-    //   path: '/index/home',
-    //   name: 'Index',
-    //   component: Index,
-    //   meta: {
-    //     title: '名片'
-    //   }
-    // }, 
     {
       path: '/briefintroduction',
       name: 'Briefintroduction',
@@ -118,7 +83,25 @@ const router= new Router({
       meta: {
         title: '动态'
       }
-    }, 
+    },
+    {
+      path: '/manhome',
+      name: 'Manhome',
+      component: Manhome,
+      meta: {
+        title: '产品管理'
+      }
+    },
+    {
+      path: '/productman',
+      name: 'Productman',
+      component: Productman,
+      meta: {
+        title: '产品管理'
+      }
+    },
+    
+     
 
   ],
   mode:"history"
