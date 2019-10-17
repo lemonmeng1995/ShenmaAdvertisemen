@@ -22,6 +22,10 @@ const Manhome = r => require.ensure([], () => r(require('../components/managemen
 
 const Productman = r => require.ensure([], () => r(require('../components/managementCom/productman')), 'index') // 产品
 
+const Banner = r => require.ensure([], () => r(require('../components/managementCom/banner')), 'index') // 产品
+
+const Procategory = r => require.ensure([], () => r(require('../components/managementCom/procategory')), 'index') // 产品
+
 
 
 
@@ -100,6 +104,23 @@ const router= new Router({
         title: '产品管理'
       }
     },
+    {
+      path: '/banner',
+      name: 'Banner',
+      component: Banner,
+      meta: {
+        title: '产品Banner管理'
+      }, 
+    },
+    {
+      path: '/procategory',
+      name: 'Procategory',
+      component: Procategory,
+      meta: {
+        title: '产品类别管理'
+      },
+    },
+    
     
      
 
