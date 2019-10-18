@@ -3,7 +3,7 @@
     <div class="procategory-top">
       <div class="procategory-top-left">产品类别</div>
       <div class="procategory-top-right">
-        <div>+添加新类别</div>
+        <div @click="getCatrelease">+添加新类别</div>
       </div>
     </div>
     <div class="procategory-context">
@@ -13,7 +13,7 @@
           <span class="text-onet">食物</span>
         </div>
         <div class="icon">
-          <img :src="images.bianji" />
+          <img :src="images.bianji" @click="getCatrelease"/>
           <img :src="images.shanchu" />
         </div>
       </div>
@@ -41,6 +41,11 @@ export default {
         shanchu: require("../../assets/man/shanchu.png")
       }
     };
+  },
+  methods:{
+    getCatrelease(){
+      this.$router.push("/catrelease")
+    }
   }
 };
 </script>

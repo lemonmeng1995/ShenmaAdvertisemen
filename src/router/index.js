@@ -27,6 +27,12 @@ const Banner = r => require.ensure([], () => r(require('../components/management
 const Procategory = r => require.ensure([], () => r(require('../components/managementCom/procategory')), 'index') // 产品
 
 
+const Catrelease = r => require.ensure([], () => r(require('../components/managementCom/catrelease')), 'index') // 产品
+
+
+const Propublish = r => require.ensure([], () => r(require('../components/managementCom/propublish')), 'index') // 产品
+
+
 
 
 
@@ -120,6 +126,23 @@ const router= new Router({
         title: '产品类别管理'
       },
     },
+    {
+    path: '/catrelease',
+    name: 'Catrelease',
+    component: Catrelease,
+    meta: {
+      title: '产品类别发布'
+    },
+  },
+  {
+    path: '/propublish',
+    name: 'Propublish',
+    component: Propublish,
+    meta: {
+      title: '新产品发布'
+    },
+  },
+  
     
     
      

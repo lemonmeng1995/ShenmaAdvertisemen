@@ -11,8 +11,10 @@
         <router-link to="/procategory">
           <img :src="images.fenlai" />
         </router-link>
+        <router-link to="/propublish">
+          <img :src="images.fabu" />
+        </router-link>
 
-        <img :src="images.fabu" />
       </div>
     </div>
     <div class="productman-context">
