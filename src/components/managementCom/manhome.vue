@@ -29,7 +29,7 @@
     </div>
     <div class="man-cell">
       <van-cell title="产品管理" is-link to="/productman" />
-      <van-cell title="发布动态" is-link />
+      <van-cell title="发布动态" is-link to="/publicadynamics"/>
       <van-cell title="修改简介" is-link />
       <van-cell title="选择风格" is-link />
       <van-cell title="自定义栏目管理" is-link />

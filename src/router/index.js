@@ -19,18 +19,21 @@ const Productdetails = r => require.ensure([], () => r(require('../components/pr
 
 
 const Manhome = r => require.ensure([], () => r(require('../components/managementCom/manhome')), 'index') // 产品
-
-const Productman = r => require.ensure([], () => r(require('../components/managementCom/productman')), 'index') // 产品
-
-const Banner = r => require.ensure([], () => r(require('../components/managementCom/banner')), 'index') // 产品
-
-const Procategory = r => require.ensure([], () => r(require('../components/managementCom/procategory')), 'index') // 产品
-
-
-const Catrelease = r => require.ensure([], () => r(require('../components/managementCom/catrelease')), 'index') // 产品
+const Productman = r => require.ensure([], () => r(require('../components/managementCom/productman/productman')), 'index') // 产品
+const Banner = r => require.ensure([], () => r(require('../components/managementCom/productman/banner')), 'index') // 产品
+const Procategory = r => require.ensure([], () => r(require('../components/managementCom/productman/procategory')), 'index') // 产品
+const Catrelease = r => require.ensure([], () => r(require('../components/managementCom/productman/catrelease')), 'index') // 产品
+const Propublish = r => require.ensure([], () => r(require('../components/managementCom/productman/propublish')), 'index') // 产品
 
 
-const Propublish = r => require.ensure([], () => r(require('../components/managementCom/propublish')), 'index') // 产品
+const Publicadynamics = r => require.ensure([], () => r(require('../components/managementCom/publicadynamics/index')), 'index') // 产品
+const Bannerdynam = r => require.ensure([], () => r(require('../components/managementCom/publicadynamics/bannerdynam')), 'index') // 产品
+
+const Dyprocategory = r => require.ensure([], () => r(require('../components/managementCom/publicadynamics/dyprocategory')), 'index') // 产品
+
+const Dyncatrelease = r => require.ensure([], () => r(require('../components/managementCom/publicadynamics/dyncatrelease')), 'index') // 产品
+
+const Dynamicspub = r => require.ensure([], () => r(require('../components/managementCom/publicadynamics/dynamicspub')), 'index') // 产品
 
 
 
@@ -142,6 +145,52 @@ const router= new Router({
       title: '新产品发布'
     },
   },
+  {
+    path: '/publicadynamics',
+    name: 'Publicadynamics',
+    component: Publicadynamics,
+    meta: {
+      title: '动态管理'
+    },
+  },
+  {
+    path: '/bannerdynam',
+    name: 'Bannerdynam',
+    component: Bannerdynam,
+    meta: {
+      title: '新闻Banner管理'
+    },
+  },
+  {
+    path: '/dyprocategory',
+    name: 'Dyprocategory',
+    component: Dyprocategory,
+    meta: {
+      title: '动态类别管理'
+    },
+  },
+  {
+    path: '/dyncatrelease',
+    name: 'Dyncatrelease',
+    component: Dyncatrelease,
+    meta: {
+      title: '动态类别发布'
+    },
+    
+  },
+  {
+    path: '/dynamicspub',
+    name: 'Dynamicspub',
+    component: Dynamicspub,
+    meta: {
+      title: '动态发布'
+    },
+    
+  },
+  
+  
+  
+  
   
     
     

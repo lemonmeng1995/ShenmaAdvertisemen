@@ -14,11 +14,10 @@
 </template>
 
 <script>
-import Profileeditor from "./profileeditor"
 import GlobaHeader from "../globalcom/globaHeader";
 export default {
     name:'briefintroduction',
-    components:{Profileeditor,GlobaHeader},
+    components:{GlobaHeader},
     data(){
         return{
              text: "简介",

@@ -37,8 +37,8 @@ export default {
   data() {
     return {
       images: {
-        bianji: require("../../assets/man/bianji.png"),
-        shanchu: require("../../assets/man/shanchu.png")
+        bianji: require("../../../assets/man/bianji.png"),
+        shanchu: require("../../../assets/man/shanchu.png")
       }
     };
   },

@@ -32,7 +32,7 @@ export default {
     return {
       name: "",
       images: {
-        addimg: require("../../assets/man/addimg.png")
+        addimg: require("../../../assets/man/addimg.png")
       }
     };
   }

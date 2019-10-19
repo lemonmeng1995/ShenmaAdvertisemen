@@ -70,12 +70,12 @@ export default {
   data() {
     return {
       images: {
-        banner: require("../../assets/man/banner.png"),
-        fenlai: require("../../assets/man/fenlai.png"),
-        fabu: require("../../assets/man/fabu.png"),
-        bianji: require("../../assets/man/bianji.png"),
-        shanchu: require("../../assets/man/shanchu.png"),
-        xiaolongx: require("../../assets/man/xiaolongx.png")
+        banner: require("../../../assets/man/banner.png"),
+        fenlai: require("../../../assets/man/fenlai.png"),
+        fabu: require("../../../assets/man/fabu.png"),
+        bianji: require("../../../assets/man/bianji.png"),
+        shanchu: require("../../../assets/man/shanchu.png"),
+        xiaolongx: require("../../../assets/man/xiaolongx.png")
       }
     };
   }
