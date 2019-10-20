@@ -6,8 +6,9 @@ import router from './router'
 import "lib-flexible"
 import VueHtml5Editor from 'vue-html5-editor'
 import 'font-awesome/css/font-awesome.min.css'
+import VCharts from 'v-charts'
 
-
+Vue.use(VCharts)
 Vue.config.productionTip = false
 
 let opt = {

@@ -30,11 +30,10 @@
     <div class="man-cell">
       <van-cell title="产品管理" is-link to="/productman" />
       <van-cell title="发布动态" is-link to="/publicadynamics"/>
-      <van-cell title="修改简介" is-link />
-      <van-cell title="选择风格" is-link />
-      <van-cell title="自定义栏目管理" is-link />
-      <van-cell title="基本信息" is-link />
-      <van-cell title="访客统计" is-link />
+      <van-cell title="修改简介" is-link to="/introduction"/>
+      <van-cell title="选择风格" is-link to="/chosestyle"/>
+      <van-cell title="基本信息" is-link  to="/briefintroduction"/>
+      <van-cell title="访客统计" is-link to="/vsitorsta"/>
       <van-cell title="系统设置" is-link />
     </div>
   </div>

@@ -35,6 +35,11 @@ const Dyncatrelease = r => require.ensure([], () => r(require('../components/man
 
 const Dynamicspub = r => require.ensure([], () => r(require('../components/managementCom/publicadynamics/dynamicspub')), 'index') // 产品
 
+const Introduction = r => require.ensure([], () => r(require('../components/managementCom/introduction')), 'index') // 产品
+
+const Chosestyle = r => require.ensure([], () => r(require('../components/managementCom/chosestyle')), 'index') // 产品
+
+const Vsitorsta = r => require.ensure([], () => r(require('../components/managementCom/vsitorsta/index')), 'index') // 产品
 
 
 
@@ -187,6 +192,33 @@ const router= new Router({
     },
     
   },
+  {
+    path: '/introduction',
+    name: 'Introduction',
+    component: Introduction,
+    meta: {
+      title: '修改简介'
+    },
+  },
+  {
+    path: '/chosestyle',
+    name: 'Chosestyle',
+    component: Chosestyle,
+    meta: {
+      title: '修改简介'
+    },
+  },
+  {
+    path: '/vsitorsta',
+    name: 'Vsitorsta',
+    component: Vsitorsta,
+    meta: {
+      title: '访客统计'
+    },
+  },
+  
+  
+  
   
   
   
