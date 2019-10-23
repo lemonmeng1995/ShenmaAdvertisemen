@@ -43,6 +43,8 @@ export default {
     background:rgba(222,222,222,1);
     display:flex;
     justify-content:space-between;
+    font-size: 30px;
+    font-weight: 600;
     .fanhui{
         width:28px;
         height:53px;

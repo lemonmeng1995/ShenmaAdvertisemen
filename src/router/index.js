@@ -8,6 +8,8 @@ Vue.use(Router)
 Vue.use(Vant);
 
 const Home = r => require.ensure([], () => r(require('../components/home/index')), 'index')
+
+const Forgetpass = r => require.ensure([], () => r(require('../components/home/forgetpass')), 'index')
 const Index = r => require.ensure([], () => r(require('../components/index')), 'index')
 
 const Briefintroduction = r => require.ensure([], () => r(require('../components/briefintroduction/index')), 'index') //简介
@@ -216,6 +218,15 @@ const router= new Router({
       title: '访客统计'
     },
   },
+  {
+    path: '/forgetpass',
+    name: 'Forgetpass',
+    component: Forgetpass,
+    meta: {
+      title: '忘记密码'
+    },
+  },
+  
   
   
   

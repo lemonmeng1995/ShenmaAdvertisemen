@@ -83,12 +83,40 @@
     <div class="conImage">
       <div class="conImage-box">
         <van-image fit="contain" :src="image.contentpicture" />
+        <img  class="sig-banner" :src="image.bannar"/>
       </div>
     </div>
+  
     <div class="joinman">
-      <p class="joinman-name">进入名片管理中心</p>
+      <p class="joinman-name" @click="getLogin">进入名片管理中心</p>
       <p class="joinman-image">二维码</p>
     </div>
+
+    <van-popup
+  v-model="show"
+  position="bottom"
+  :style="{ height: '60%' }"
+>
+  <div class="login">
+    <div class="login-title">
+      登入名片
+    </div>
+    <div class="login-zhanghu">
+      账号：
+    </div>
+     <van-field v-model="value" placeholder="请输入账户" />
+      <div class="login-zhanghu">
+      密码：
+    </div>
+     <van-field v-model="value" placeholder="请输入账户" />
+    <div class="login-foword" @click="getforgetpass">
+      忘记密码？
+    </div>
+    <div class="onsubmit" @click="onsubmit">登 入</div>
+    <div class="cancal" @click="onCancal"> 取 消</div>
+  </div>
+    </van-popup>
+
   </div>
 </template>
 
@@ -98,8 +126,11 @@ export default {
   data() {
     return {
       musicfile:require("../../assets/musci/muc.mp3"),
+      
+      
       // autoplay:true,
       image: {
+             bannar: require("../../assets/home/bannar.png"),
         touxiang: require("../../assets/home/touxiang.png"),
         wode01: require("../../assets/home/wode01.png"),
         youxiang: require("../../assets/home/youxiang.png"),
@@ -119,9 +150,22 @@ export default {
       active: 0, //tab切换得标示
       isMorec:true, //左上角得到更多得菜单标示
       isMusci:true ,  //右上角音乐
+      show:false,  //弹出层
     };
   },
   methods: {
+    getforgetpass(){
+       this.$router.push("/forgetpass")
+    },
+    onsubmit(){
+       this.$router.push("/manhome")
+    },
+    onCancal(){
+       this.show = false
+    },
+    getLogin(){
+        this.show = true
+    },
     onClick() {
       console.log("打印得好似点击得onClick", this.active);
     },
@@ -390,6 +434,10 @@ border-radius:37px;
       }
     }
   }
+  .sig-banner{
+    height:249px;
+    // margin:20px;
+  }
   .joinman {
     width: 100%;
     text-align: center;
@@ -409,5 +457,61 @@ border-radius:37px;
       right: 40px;
     }
   }
+ .van-popup {
+    .login{
+      padding:20px;
+     .login-title{
+       font-size: 38px;
+       text-align: center;
+       font-weight: 700;
+       padding:10px;
+       height:70px;
+       line-height:70px;
+       border-bottom: 3px solid #000;
+     }
+     .login-zhanghu{
+       font-size: 30px;
+       padding:20px;
+       font-weight: 600;
+
+     }
+     .van-cell{
+       border:2px solid #eee;
+
+     }
+     .login-foword{
+       text-align: center;
+       font-weight: 600;
+       font-size: 28px;
+       padding:20px 0px 50px 0;
+       border-bottom: 2px solid #000;
+
+     }
+     .onsubmit{
+       margin:20px;
+       height:90px;
+       text-align: center;
+       line-height: 90px;
+       background: red;
+       border-radius: 20px;
+       color:#fff;
+       font-size: 30px;
+
+
+     }
+     .cancal{
+         margin:20px;
+       height:90px;
+       text-align: center;
+       line-height: 90px;
+       background: #eee;
+       border-radius: 20px;
+       color:#fff;
+       font-size: 30px;
+
+     }
+   }
+ }
+ 
 }
 </style>
