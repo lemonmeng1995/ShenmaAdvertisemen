@@ -18,7 +18,7 @@
               <span>13615603317</span>
             </p>
           </div>
-          <img class="top-card" :src="images.card" />
+          <img @click="showCard" class="top-card" :src="images.card" />
         </div>
         <div class="context-bom">
           <p>智想版:2019-10-08到期</p>
@@ -34,7 +34,7 @@
       <van-cell title="选择风格" is-link to="/chosestyle"/>
       <van-cell title="基本信息" is-link  to="/briefintroduction"/>
       <van-cell title="访客统计" is-link to="/vsitorsta"/>
-      <van-cell title="系统设置" is-link />
+      <van-cell title="系统设置" is-link to="/systemsetup"/>
     </div>
   </div>
 </template>
@@ -51,7 +51,13 @@ export default {
         heade: require("../../assets/man/heade.png")
       }
     };
+  },
+  methods:{
+    showCard(){
+    this.$router.push("/cardholder")
+   }
   }
+
 };
 </script>
 

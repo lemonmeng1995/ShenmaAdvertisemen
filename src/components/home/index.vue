@@ -7,7 +7,7 @@
         <img class="home-morecai-close" :src="image.close" @click="getMoreCaidan(true)"/>
         <img  class="home-morecai-baocun" :src="image.baocun"/>
         <img  class="home-morecai-caierwei" :src="image.caierwei"/>
-        <img  class="home-morecai-tuijian" :src="image.tuijian"/>
+        <img  class="home-morecai-tuijian" :src="image.shoucan" @click="getMoreColl(true)"/>
         <img  class="home-morecai-chaunjian" :src="image.chaunjian"/>
     </div>
     <div class="home-music">
@@ -117,10 +117,25 @@
   </div>
     </van-popup>
 
+     <van-popup
+      v-model="moreColl"
+      :style="{ height: '22%',width:'70%' }"
+    >
+      <div class="shoucan">
+        <div class="title">请输入您的名片账号</div>
+        <van-field v-model="value" placeholder="请输入账户" />
+        <div class="bottom">
+           <div class="sub">确定</div>
+          <div class="can" @click="getMoreColl(false)">取消</div>
+         
+        </div>
+      </div>
+    </van-popup>
   </div>
 </template>
 
 <script>
+import { Dialog } from 'vant';
 export default {
   name: "home",
   data() {
@@ -130,6 +145,7 @@ export default {
       
       // autoplay:true,
       image: {
+        shoucan: require("../../assets/home/shoucan.png"),
              bannar: require("../../assets/home/bannar.png"),
         touxiang: require("../../assets/home/touxiang.png"),
         wode01: require("../../assets/home/wode01.png"),
@@ -151,9 +167,21 @@ export default {
       isMorec:true, //左上角得到更多得菜单标示
       isMusci:true ,  //右上角音乐
       show:false,  //弹出层
+      moreColl:false, //收藏弹出
     };
   },
   methods: {
+    getMoreColl(state){
+      this.moreColl = state
+//       let input = "<van-field v-model="value" placeholder="请输入用户名" />"
+//      Dialog.confirm({
+//   title: '请输入您的名片账号',
+//   message: input,
+// }).then(() => {
+//   // on close
+// });
+
+    },
     getforgetpass(){
        this.$router.push("/forgetpass")
     },
@@ -510,6 +538,46 @@ border-radius:37px;
        font-size: 30px;
 
      }
+   }
+ }
+ .van-popup {
+   .shoucan{
+     padding:20px;
+     .title{
+       text-align: center;
+       font-size:35px;
+font-family:Droid Sans Fallback;
+font-weight:400;
+color:rgba(28,28,28,1);
+
+     }
+     .van-cell{
+       margin:20px 0;
+       border:2px solid #eee;
+     }
+     .bottom{
+      //  border-top: 2px solid #eee;
+       margin-top:20px;
+       padding:20px;
+       display:flex;
+       justify-content:space-between;
+       .sub{
+         font-size:33px;
+font-family:Droid Sans Fallback;
+font-weight:400;
+color:rgba(51,186,240,1);
+
+       }
+       .can{
+         font-size:33px;
+font-family:Droid Sans Fallback;
+font-weight:400;
+color:rgba(163,160,160,1);
+
+       }
+
+     }
+
    }
  }
  

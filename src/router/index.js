@@ -20,6 +20,10 @@ const Product = r => require.ensure([], () => r(require('../components/product/i
 const Productdetails = r => require.ensure([], () => r(require('../components/product/productdetails')), 'index') // 产品
 
 
+const Cardholder = r => require.ensure([], () => r(require('../components/managementCom/cardholder')), 'index') // 产品
+
+const Systemsetup = r => require.ensure([], () => r(require('../components/managementCom/systemsetup')), 'index') // 产品
+
 const Manhome = r => require.ensure([], () => r(require('../components/managementCom/manhome')), 'index') // 产品
 const Productman = r => require.ensure([], () => r(require('../components/managementCom/productman/productman')), 'index') // 产品
 const Banner = r => require.ensure([], () => r(require('../components/managementCom/productman/banner')), 'index') // 产品
@@ -226,6 +230,24 @@ const router= new Router({
       title: '忘记密码'
     },
   },
+  {
+    path: '/cardholder',
+    name: 'Cardholder',
+    component: Cardholder,
+    meta: {
+      title: '我得名片夹'
+    },
+  },
+  {
+    path: '/systemsetup',
+    name: 'Systemsetup',
+    component: Systemsetup,
+    meta: {
+      title: '系统设置'
+    },
+  },
+  
+  
   
   
   
