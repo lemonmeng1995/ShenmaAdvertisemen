@@ -1,19 +1,19 @@
 <template>
   <div id="home">
     <div v-if="isMorec" class="home-Caidan" @click="getMoreCaidan(false)">
-      <img :src="image.caidan"/>
+      <img :src="image.caidan" />
     </div>
     <div v-else class="home-morecai">
-        <img class="home-morecai-close" :src="image.close" @click="getMoreCaidan(true)"/>
-        <img  class="home-morecai-baocun" :src="image.baocun"/>
-        <img  class="home-morecai-caierwei" :src="image.caierwei"/>
-        <img  class="home-morecai-tuijian" :src="image.shoucan" @click="getMoreColl(true)"/>
-        <img  class="home-morecai-chaunjian" :src="image.chaunjian"/>
+      <img class="home-morecai-close" :src="image.close" @click="getMoreCaidan(true)" />
+      <img class="home-morecai-baocun" :src="image.baocun" />
+      <img class="home-morecai-caierwei" :src="image.caierwei" />
+      <img class="home-morecai-tuijian" :src="image.shoucan" @click="getMoreColl(true)" />
+      <img class="home-morecai-chaunjian" :src="image.chaunjian" />
     </div>
     <div class="home-music">
-        <audio :src="musicfile" class="media-audio" loop autoplay ref="MusicPlay"></audio>   
-       <img v-if="isMusci" :src="image.musci" @click="getMoremusci(false)"/>
-       <img v-else :src="image.nomuic" @click="getMoremusci(true)"/> 
+      <audio :src="musicfile" class="media-audio" loop autoplay ref="MusicPlay"></audio>
+      <img v-if="isMusci" :src="image.musci" @click="getMoremusci(false)" />
+      <img v-else :src="image.nomuic" @click="getMoremusci(true)" />
     </div>
     <div
       class="topHome"
@@ -83,51 +83,35 @@
     <div class="conImage">
       <div class="conImage-box">
         <van-image fit="contain" :src="image.contentpicture" />
-        <img  class="sig-banner" :src="image.bannar"/>
+        <img class="sig-banner" :src="image.bannar" />
       </div>
     </div>
-  
+
     <div class="joinman">
       <p class="joinman-name" @click="getLogin">进入名片管理中心</p>
       <p class="joinman-image">二维码</p>
     </div>
 
-    <van-popup
-  v-model="show"
-  position="bottom"
-  :style="{ height: '60%' }"
->
-  <div class="login">
-    <div class="login-title">
-      登入名片
-    </div>
-    <div class="login-zhanghu">
-      账号：
-    </div>
-     <van-field v-model="value" placeholder="请输入账户" />
-      <div class="login-zhanghu">
-      密码：
-    </div>
-     <van-field v-model="value" placeholder="请输入账户" />
-    <div class="login-foword" @click="getforgetpass">
-      忘记密码？
-    </div>
-    <div class="onsubmit" @click="onsubmit">登 入</div>
-    <div class="cancal" @click="onCancal"> 取 消</div>
-  </div>
+    <van-popup v-model="show" position="bottom" :style="{ height: '60%' }">
+      <div class="login">
+        <div class="login-title">登入名片</div>
+        <div class="login-zhanghu">账号：</div>
+        <van-field v-model="value" placeholder="请输入账户" />
+        <div class="login-zhanghu">密码：</div>
+        <van-field v-model="value" placeholder="请输入账户" />
+        <div class="login-foword" @click="getforgetpass">忘记密码？</div>
+        <div class="onsubmit" @click="onsubmit">登 入</div>
+        <div class="cancal" @click="onCancal">取 消</div>
+      </div>
     </van-popup>
 
-     <van-popup
-      v-model="moreColl"
-      :style="{ height: '22%',width:'70%' }"
-    >
+    <van-popup v-model="moreColl" :style="{ height: '22%',width:'70%' }">
       <div class="shoucan">
         <div class="title">请输入您的名片账号</div>
         <van-field v-model="value" placeholder="请输入账户" />
         <div class="bottom">
-           <div class="sub">确定</div>
+          <div class="sub">确定</div>
           <div class="can" @click="getMoreColl(false)">取消</div>
-         
         </div>
       </div>
     </van-popup>
@@ -135,83 +119,79 @@
 </template>
 
 <script>
-import { Dialog } from 'vant';
+import { Dialog } from "vant";
 export default {
   name: "home",
   data() {
     return {
-      musicfile:require("../../assets/musci/muc.mp3"),
-      
-      
+      musicfile: require("../../assets/musci/muc.mp3"),
       // autoplay:true,
       image: {
         shoucan: require("../../assets/home/shoucan.png"),
-             bannar: require("../../assets/home/bannar.png"),
+        bannar: require("../../assets/home/bannar.png"),
         touxiang: require("../../assets/home/touxiang.png"),
         wode01: require("../../assets/home/wode01.png"),
         youxiang: require("../../assets/home/youxiang.png"),
         dingwei: require("../../assets/home/dingwei.png"),
         contentpicture: require("../../assets/home/contentpicture.png"),
         caidan: require("../../assets/home/caidan.png"),
-          musci: require("../../assets/home/musci.png"),
-           nomuic: require("../../assets/home/nomuic.png"),
+        musci: require("../../assets/home/musci.png"),
+        nomuic: require("../../assets/home/nomuic.png"),
 
-                baocun: require("../../assets/home/baocun.png"),
+        baocun: require("../../assets/home/baocun.png"),
         close: require("../../assets/home/close.png"),
         caierwei: require("../../assets/home/caierwei.png"),
-          tuijian: require("../../assets/home/tuijian.png"),
-           chaunjian: require("../../assets/home/chaunjian.png"),
-
+        tuijian: require("../../assets/home/tuijian.png"),
+        chaunjian: require("../../assets/home/chaunjian.png")
       },
       active: 0, //tab切换得标示
-      isMorec:true, //左上角得到更多得菜单标示
-      isMusci:true ,  //右上角音乐
-      show:false,  //弹出层
-      moreColl:false, //收藏弹出
+      isMorec: true, //左上角得到更多得菜单标示
+      isMusci: true, //右上角音乐
+      show: false, //弹出层
+      moreColl: false //收藏弹出
     };
   },
   methods: {
-    getMoreColl(state){
-      this.moreColl = state
-//       let input = "<van-field v-model="value" placeholder="请输入用户名" />"
-//      Dialog.confirm({
-//   title: '请输入您的名片账号',
-//   message: input,
-// }).then(() => {
-//   // on close
-// });
-
+    getMoreColl(state) {
+      this.moreColl = state;
+      //       let input = "<van-field v-model="value" placeholder="请输入用户名" />"
+      //      Dialog.confirm({
+      //   title: '请输入您的名片账号',
+      //   message: input,
+      // }).then(() => {
+      //   // on close
+      // });
     },
-    getforgetpass(){
-       this.$router.push("/forgetpass")
+    getforgetpass() {
+      this.$router.push("/forgetpass");
     },
-    onsubmit(){
-       this.$router.push("/manhome")
+    onsubmit() {
+      this.$router.push("/manhome");
     },
-    onCancal(){
-       this.show = false
+    onCancal() {
+      this.show = false;
     },
-    getLogin(){
-        this.show = true
+    getLogin() {
+      this.show = true;
     },
     onClick() {
       console.log("打印得好似点击得onClick", this.active);
     },
     //点击得到更多得菜单选择
-    getMoreCaidan(state){
-      this.isMorec = state
+    getMoreCaidan(state) {
+      this.isMorec = state;
     },
-    getMoremusci(state){
-      console.log("232,", state,this.isMusci )
-      this.isMusci = state
+    getMoremusci(state) {
+      console.log("232,", state, this.isMusci);
+      this.isMusci = state;
       // this.autoplay = state
-      if(state){
+      if (state) {
         this.$refs.MusicPlay.play();
-      }else{
+      } else {
         this.$refs.MusicPlay.pause();
       }
-   
-        console.log("2222,", state,this.isMusci )
+
+      console.log("2222,", state, this.isMusci);
     }
   }
 };
@@ -221,62 +201,61 @@ export default {
 #home {
   width: 100%;
   margin-bottom: 120px;
-  .home-Caidan{
-    position:absolute;
-    left:24px;
-    top:25px;
-    img{
-      width:72px;
-      height:73px;
+  .home-Caidan {
+    position: absolute;
+    left: 24px;
+    top: 25px;
+    img {
+      width: 72px;
+      height: 73px;
     }
   }
-  .home-morecai{
-     position:absolute;
-     text-align: center;
-      left:24px;
-    top:25px;
-     width:74px;
-height:483px;
-background:rgba(188,188,206,0.7);
-border:0px solid rgba(0,0,0,1);
-border-radius:37px;
-  img{
-      margin-top:20px;
+  .home-morecai {
+    position: absolute;
+    text-align: center;
+    left: 24px;
+    top: 25px;
+    width: 74px;
+    height: 483px;
+    background: rgba(188, 188, 206, 0.7);
+    border: 0px solid rgba(0, 0, 0, 1);
+    border-radius: 37px;
+    img {
+      margin-top: 20px;
     }
-    .home-morecai-close{
-      width:53px;
-      height:53px;
+    .home-morecai-close {
+      width: 53px;
+      height: 53px;
       // margin:20px auto;
     }
-      .home-morecai-baocun{
-      width:42px;
-      height:64px;
+    .home-morecai-baocun {
+      width: 42px;
+      height: 64px;
       // margin:6px auto;
     }
-      .home-morecai-caierwei{
-      width:63px;
-      height:64px;
+    .home-morecai-caierwei {
+      width: 63px;
+      height: 64px;
       // margin:6px auto;
     }
-      .home-morecai-tuijian{
-      width:41px;
-      height:64px;
+    .home-morecai-tuijian {
+      width: 41px;
+      height: 64px;
       // margin:6px auto;
     }
-      .home-morecai-chaunjian{
-      width:42px;
-      height:64px;
+    .home-morecai-chaunjian {
+      width: 42px;
+      height: 64px;
       // margin:6px auto;
     }
-
   }
-  .home-music{
-     position:absolute;
-     right:30px;
-     top:25px;
-         img{
-      width:72px;
-      height:73px;
+  .home-music {
+    position: absolute;
+    right: 30px;
+    top: 25px;
+    img {
+      width: 72px;
+      height: 73px;
     }
   }
   .topHome {
@@ -462,8 +441,8 @@ border-radius:37px;
       }
     }
   }
-  .sig-banner{
-    height:249px;
+  .sig-banner {
+    height: 249px;
     // margin:20px;
   }
   .joinman {
@@ -485,101 +464,89 @@ border-radius:37px;
       right: 40px;
     }
   }
- .van-popup {
-    .login{
-      padding:20px;
-     .login-title{
-       font-size: 38px;
-       text-align: center;
-       font-weight: 700;
-       padding:10px;
-       height:70px;
-       line-height:70px;
-       border-bottom: 3px solid #000;
-     }
-     .login-zhanghu{
-       font-size: 30px;
-       padding:20px;
-       font-weight: 600;
-
-     }
-     .van-cell{
-       border:2px solid #eee;
-
-     }
-     .login-foword{
-       text-align: center;
-       font-weight: 600;
-       font-size: 28px;
-       padding:20px 0px 50px 0;
-       border-bottom: 2px solid #000;
-
-     }
-     .onsubmit{
-       margin:20px;
-       height:90px;
-       text-align: center;
-       line-height: 90px;
-       background: red;
-       border-radius: 20px;
-       color:#fff;
-       font-size: 30px;
-
-
-     }
-     .cancal{
-         margin:20px;
-       height:90px;
-       text-align: center;
-       line-height: 90px;
-       background: #eee;
-       border-radius: 20px;
-       color:#fff;
-       font-size: 30px;
-
-     }
-   }
- }
- .van-popup {
-   .shoucan{
-     padding:20px;
-     .title{
-       text-align: center;
-       font-size:35px;
-font-family:Droid Sans Fallback;
-font-weight:400;
-color:rgba(28,28,28,1);
-
-     }
-     .van-cell{
-       margin:20px 0;
-       border:2px solid #eee;
-     }
-     .bottom{
-      //  border-top: 2px solid #eee;
-       margin-top:20px;
-       padding:20px;
-       display:flex;
-       justify-content:space-between;
-       .sub{
-         font-size:33px;
-font-family:Droid Sans Fallback;
-font-weight:400;
-color:rgba(51,186,240,1);
-
-       }
-       .can{
-         font-size:33px;
-font-family:Droid Sans Fallback;
-font-weight:400;
-color:rgba(163,160,160,1);
-
-       }
-
-     }
-
-   }
- }
- 
+  .van-popup {
+    .login {
+      padding: 20px;
+      .login-title {
+        font-size: 38px;
+        text-align: center;
+        font-weight: 700;
+        padding: 10px;
+        height: 70px;
+        line-height: 70px;
+        border-bottom: 3px solid #000;
+      }
+      .login-zhanghu {
+        font-size: 30px;
+        padding: 20px;
+        font-weight: 600;
+      }
+      .van-cell {
+        border: 2px solid #eee;
+      }
+      .login-foword {
+        text-align: center;
+        font-weight: 600;
+        font-size: 28px;
+        padding: 20px 0px 50px 0;
+        border-bottom: 2px solid #000;
+      }
+      .onsubmit {
+        margin: 20px;
+        height: 90px;
+        text-align: center;
+        line-height: 90px;
+        background: red;
+        border-radius: 20px;
+        color: #fff;
+        font-size: 30px;
+      }
+      .cancal {
+        margin: 20px;
+        height: 90px;
+        text-align: center;
+        line-height: 90px;
+        background: #eee;
+        border-radius: 20px;
+        color: #fff;
+        font-size: 30px;
+      }
+    }
+  }
+  .van-popup {
+    .shoucan {
+      padding: 20px;
+      .title {
+        text-align: center;
+        font-size: 35px;
+        font-family: Droid Sans Fallback;
+        font-weight: 400;
+        color: rgba(28, 28, 28, 1);
+      }
+      .van-cell {
+        margin: 20px 0;
+        border: 2px solid #eee;
+      }
+      .bottom {
+        //  border-top: 2px solid #eee;
+        margin-top: 20px;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        .sub {
+          font-size: 33px;
+          font-family: Droid Sans Fallback;
+          font-weight: 400;
+          color: rgba(51, 186, 240, 1);
+        }
+        .can {
+          font-size: 33px;
+          font-family: Droid Sans Fallback;
+          font-weight: 400;
+          color: rgba(163, 160, 160, 1);
+        }
+      }
+    }
+  }
 }
 </style>
